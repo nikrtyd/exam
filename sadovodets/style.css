@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+/* BASIC VARIABLES */
+
+:root {
+  --container-max-width: 1000px;
+  --container-padding: 1.5rem;
+  --container-padding-mobile: 1rem;
+  --container-padding-mobile-small: 0.5rem;
+  --color-primary: #00bc44;
+  --color-primary-dark: #006826;
+  --color-primary-light: #00e8a0;
+}
+
+/* @media (prefers-color-scheme:light) { */
+:root {
+  --color-background: #fafafa;
+  --color-background-dark: #f5f5f5;
+  --color-text: #151515;
+  --color-text-dark: #111111;
+}
+
+/* } */
+
+/* @media (prefers-color-scheme:dark) {
+  :root {
+    --color-background: #151515;
+    --color-background-dark: #111111;
+    --color-text: #fafafa;
+    --color-text-dark: #f5f5f5;
+  }
+} */
+
+/* GLOBAL STYLES */
+
+body {
+  margin: 38px 0;
+  font-family: "Istok Web", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* BASIC CLASSES */
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.aic {
+  align-items: center;
+}
+
+.min-content {
+  height: min-content;
+}
+
+.gap14 {
+  gap: 14px;
+}
+
+.gap21 {
+  gap: 21px;
+}
+
+.dir-col {
+  flex-direction: column;
+}
+
+.w100p {
+  width: 100%;
+}
+
+/* ELEMENTS */
+
+button {
+  background: #FAFAFA;
+  border: 1px solid #4B7238;
+  border-radius: 4px;
+  padding: 7px 38px;
+  color: #4B7238;
+  font-weight: 700;
+}
+
+button.primary {
+  background: #4B7238;
+  gap: 10px;
+  color: #FFFFFF;
+}
+
+.hero__preheading {
+  font-family: 'Yeseva One';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.hero__heading {
+  font-family: 'Yeseva One';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+}
+
+.hero__subheading {
+  font-family: 'Istok Web';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.hero__info {
+  max-width: 428px;
+}
+
+.hero__visuals {
+  grid-template: 290px 90px / 290px 90px;
+}
+
+.bdrd-4 {
+  border-radius: 4px;
+}
+
+.shadow {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hero__image {
+  width: 290px;
+  height: 290px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.hero__moreinfo {
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  grid-row: 2;
+  grid-column: 2;
+  background: #fff;
+  font-weight: 700;
+  color: #4B7238;
+}
+
+.hero__learn_more {
+  max-width: max-content;
+}
+
+.categories__grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+  margin-top: 25px;
+}
+
+.categories__card {
+  align-items: center;
+  padding: 13px 14px;
+  gap: 28px;
+  background: #97A590;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.categories__card_img {
+  min-width: 86px;
+  width: 86px;
+  height: 58px;
+}
+
+/* BLOCKS */
+
+.header {
+  margin-bottom: 6vh;
+}
+
+.hero {
+  margin-bottom: 6vh;
+}
+
+.categories {
+  background: rgba(75, 114, 56, 0.08);
+  border-radius: 4px;
+  padding: 38px 28px 77px;
+  font-weight: 700;
+}
