@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap');
+
+body {
+  margin: 67px;
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+  background: url(bg.svg) no-repeat center center fixed;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.dir-col {
+  flex-direction: column;
+}
+
+.dropdown--right {
+  padding-right: 38px;
+  cursor: pointer;
+  background: url(dropdown.svg) no-repeat right center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.s1__goal {}
+
+p {
+  text-transform: none;
+}
+
+.dropdown_menu {
+  position: absolute;
+  display: none;
+}
+
+.dropdown_menu.visible {
+  display: block;
+}
