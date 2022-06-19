@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --red: #A70000;
+  --text: #000;
+  --tint: #FFFAF4;
+  --dropdown: #FFFDFB;
+}
+
+body {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--dropdown);
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  z-index: 1;
+  display: none;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  padding: 51px;
+}
+
+.dropdown_menu.visible {
+  display: block;
+}
+
+.dropdown_menu_item--primary {
+  color: var(--red);
+}
+
+ul li {
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+button {
+  padding: 22px 33px;
+  background: #ECECEC;
+  border: none;
+}
+
+button:active {
+  background: #DCDCDC;
+}
+
+button:hover {
+  background: #FCFCFC;
+}
+
+.scroller_list {
+  overflow-x: scroll;
+  width: 100%;
+}
+
+footer {
+  padding: 35px;
+}

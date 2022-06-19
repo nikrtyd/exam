@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap');
 
+:root {
+  --main: #ED9831;
+  --text: #000;
+  --tint: #FFFAF4;
+  --dropdown: #FFFDFB;
+}
+
 body {
   margin: 67px;
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
   background: url(bg.svg) no-repeat center center fixed;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
 }
 
 .container {
@@ -42,7 +52,28 @@ ul {
   list-style: none;
 }
 
-.s1__goal {}
+.s1__goal {
+  color: var(--main);
+}
+
+.header__account_name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.header__account_plan {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  text-transform: uppercase;
+
+  background: linear-gradient(90deg, #504F8A 1.35%, rgba(114, 113, 143, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
 
 p {
   text-transform: none;
@@ -51,8 +82,47 @@ p {
 .dropdown_menu {
   position: absolute;
   display: none;
+  background: var(--dropdown);
+  box-shadow: 0px 4px 11px -4px #DDCAB3;
+}
+
+.dropdown_menu_item {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.dropdown_menu_item--primary {
+  color: var(--main);
 }
 
 .dropdown_menu.visible {
   display: block;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 49px;
+}
+
+.s1__label {
+  color: var(--main);
+}
+
+.sect__prime {
+  background: var(--tint);
+}
+
+.shadow {
+  box-shadow: 0px 4px 11px -4px #DDCAB3;
+}
+
+.s2 p {
+  max-width: 689px;
 }
