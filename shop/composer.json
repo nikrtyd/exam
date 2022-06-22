@@ -1,0 +1,15 @@
+{
+    "name": "user228/pract25",
+    "authors": [
+        {
+            "name": "nikrtyd",
+            "email": "nikrtyd@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Shop\\": ""
+        }
+    }
+}
