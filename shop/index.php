@@ -18,15 +18,16 @@ $articles = $db->get_all_entries('articles');
 
 <body>
   <?php include "header.php" ?>
-  <h1>Все товары</h1>
-
-  <div class="grid grid--scrollable"> 
-    <?php foreach ($articles as $card) : ?>
-      <?= (new Shop\Card($card["Id"], $card["Image"], $card["Name"]))->get_html() ?>
-    <?php endforeach; ?>
-  </div>
-  <div id="popup_photo">
-    <img src="" alt="">
+  <div class="container">
+    <h1>Все товары</h1>
+    <div class="grid grid--scrollable">
+      <?php foreach ($articles as $card) : ?>
+        <?= (new Shop\Card($card["Id"], $card["Image"], $card["Name"], $card["Price"]))->get_html() ?>
+      <?php endforeach; ?>
+    </div>
+    <div id="popup_photo">
+      <img src="" alt="">
+    </div>
   </div>
   <script src="script.js"></script>
 </body>

@@ -32,7 +32,7 @@
   <h1>Галерея пользователя</h1>
   <div id="grid">
     <?php foreach ($data as $photo): ?>
-      <?= (new Shop\Card($photo["Id"], $photo["Image"], $photo["Text"]))->get_html() ?>
+      <?= (new Shop\Card($photo["Id"], $photo["Image"], $photo["Name"], $photo["Price"]))->get_html() ?>
     <?php endforeach; ?>
   </div>
   <?php else: ?>
