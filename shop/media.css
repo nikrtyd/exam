@@ -9,7 +9,7 @@
   }
 
   .mobile_icon {
-    display: block;
+    display: block; 
     width: 2rem;
     height: 2rem;
     background: #fff;
@@ -41,7 +41,7 @@
 
 /* Mobile */
 @media screen and (max-width: 515px) {
-  #grid {
+  .grid {
     grid-template-columns: 1fr;
   }
 

@@ -41,34 +41,36 @@ header a {
   box-shadow: 0px 0px 0px #000;
   transform: scale(1);
   transition: box-shadow .2s linear, transform .2s linear, z-index 0s .2s step-end;
+  color: #eee;
+  text-decoration: none;
 }
 
 .card:hover {
   box-shadow: 0px 4px 10px #0005;
-  transform: scale(1.02);
+  transform: scale(1.01);
   z-index: 1;
 }
 
-#grid .card:nth-child(odd) {
+.grid .card:nth-child(odd) {
   transform-origin: left;
 }
 
 /* для элементов справа в сетке */
-#grid .card:nth-child(even) {
+.grid .card:nth-child(even) {
   transform-origin: right;
 }
 
 .card__image {
   height: 50%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 h1 {
   margin: 1rem;
 }
 
-#grid {
+.grid {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
@@ -172,6 +174,11 @@ h1 {
   max-height: 80vh;
   display: block;
   margin: 1rem auto;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
 }
 
 #image h1,

@@ -3,7 +3,7 @@ session_start();
 $user_id = $_SESSION["user_id"] ?? false;
 require "vendor/autoload.php";
 $db = new Shop\DB();
-$articles = $db->get_all_articles();
+$articles = $db->get_all_entries('articles');
 ?>
 <!DOCTYPE html>
 <html lang="en">

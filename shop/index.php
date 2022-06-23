@@ -3,8 +3,8 @@ session_start();
 $user_id = $_SESSION["user_id"] ?? false;
 require "vendor/autoload.php";
 $db = new Shop\DB();
-$articles = $db->get_all_articles();
-$promotions = $db->get_all_promotions();
+$articles = $db->get_all_entries('articles');
+// $promotions = $db->get_all_entries('promotions');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +19,10 @@ $promotions = $db->get_all_promotions();
 <body>
   <?php include "header.php" ?>
   <h1>Все товары</h1>
-  <div id="grid">
+
+  <div class="grid grid--scrollable"> 
     <?php foreach ($articles as $card) : ?>
-      <?= (new Shop\Card($card["Id"], $card["Image"], $card["Text"]))->get_html() ?>
+      <?= (new Shop\Card($card["Id"], $card["Image"], $card["Name"]))->get_html() ?>
     <?php endforeach; ?>
   </div>
   <div id="popup_photo">

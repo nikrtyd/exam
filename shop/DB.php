@@ -17,28 +17,9 @@ class DB
     $this->link->set_charset('utf8');
   }
 
-  public function get_all_entries($query) {
-    switch ($query) {
-      case 'promotions':
-        # TODO: promotions
-        break;
-      case 'articles':
-        break;
-      default:
-        return [];
-        break;
-    }
-  }
-
-  // TODO: Remove this
-  public function get_all_promotions()
+  public function get_all_entries($query)
   {
-    return [];
-  }
-
-  public function get_all_articles()
-  {
-    $sql_result = $this->link->query("SELECT * FROM `photos` ORDER BY `Id` DESC");
+    $sql_result = $this->link->query("SELECT * FROM `$query` ORDER BY `Purchases` DESC");
     if ($sql_result->num_rows) {
       return $sql_result->fetch_all(MYSQLI_ASSOC);
     }
@@ -47,7 +28,7 @@ class DB
 
   public function get_user_photos($uid)
   {
-    $sql_result = $this->link->query("SELECT * FROM `photos` WHERE `Uid` = '$uid' ORDER BY `Id` DESC");
+    $sql_result = $this->link->query("SELECT * FROM ` ` WHERE `Uid` = '$uid' ORDER BY `Id` DESC");
     if ($sql_result->num_rows) {
       return $sql_result->fetch_all(MYSQLI_ASSOC);
     }
@@ -83,18 +64,19 @@ class DB
     $this->link->query("INSERT INTO `photos` (`Uid`, `Image`, `Text`, `Tags`) VALUES ('$uid', '$image', '$text', '')");
   }
 
-  public function get_photo_by_id($photo_id)
+  public function get_article_by_id($article_id)
   {
-    $sql_result = $this->link->query("SELECT `p`.*, `u`.`Name` FROM `photos` `p` LEFT JOIN `users` `u` ON `u`.`Id` = `p`.`Uid` WHERE `p`.`Id` = '$photo_id'");
+    $sql_result = $this->link->query("SELECT `a`.*, 
+  `c`.`CatName` FROM `articles` `a` LEFT JOIN `categories` `c` ON `a`.`Category` = `c`.`Id` WHERE `a`.`Id` = '$article_id'");
     if ($sql_result->num_rows) {
       return $sql_result->fetch_assoc();
     }
     return false;
   }
 
-  public function get_photo_comments($photo_id)
+  public function get_article_reviews($article_id)
   {
-    $sql_result = $this->link->query("SELECT `c`.*, `u`.`Name` FROM `comments` `c` LEFT JOIN `users` `u` ON `u`.`Id` = `c`.`Uid` WHERE `c`.`Pid` = '$photo_id' ORDER BY `Id` DESC");
+    $sql_result = $this->link->query("SELECT `r`.*, `u`.`Name` FROM `reviews` `r` LEFT JOIN `users` `u` ON `u`.`Id` = `r`.`Uid` WHERE `r`.`Aid` = '$article_id' ORDER BY `Id` DESC");
     if ($sql_result->num_rows) {
       return $sql_result->fetch_all(MYSQLI_ASSOC);
     }
@@ -104,9 +86,9 @@ class DB
   public function add_comment($pid, $uid, $text)
   {
     $date = date('Y-m-d');
-    $this->link->query("INSERT INTO `comments` (`Pid`, `Uid`, `Text`, `Post_date`) VALUES ('$pid', '$uid', '$text', '$date')");
+    $this->link->query("INSERT INTO `reviews` (`Pid`, `Uid`, `Text`, `Post_date`) VALUES ('$pid', '$uid', '$text', '$date')");
     $last_id = $this->link->insert_id;
-    $inserted_comment = $this->link->query("SELECT `c`.*, `u`.`Name` FROM `comments` `c` LEFT JOIN `users` `u` ON `u`.`Id` = `c`.`Uid` WHERE `c`.`Id` = '$last_id'");
+    $inserted_comment = $this->link->query("SELECT `r`.*, `u`.`Name` FROM `reviews` `r` LEFT JOIN `users` `u` ON `u`.`Id` = `r`.`Uid` WHERE `r`.`Id` = '$last_id'");
     return $inserted_comment->fetch_assoc();
   }
 }
