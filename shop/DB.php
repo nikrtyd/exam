@@ -40,7 +40,7 @@ class DB
     $sql_result = $this->link->query("SELECT * FROM `users` WHERE `Email` = '$login' AND `Password` = '$password'");
     if ($sql_result->num_rows) {
       $user = $sql_result->fetch_assoc();
-      return $user["Id"];
+      return [$user["Id"], $user["IsAdmin"]];
     }
     return false;
   }

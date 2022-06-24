@@ -3,6 +3,7 @@
 use function Composer\Autoload\includeFile;
 
 session_start();
+$is_admin = $_SESSION["is_admin"] ?? false;
 $user_id = $_SESSION["user_id"] ?? false;
 $article_id = intval($_GET["id"]);
 require "vendor/autoload.php";
@@ -27,11 +28,13 @@ $reviews = $db->get_article_reviews($article_id);
   <div id="article">
     <img src="<?= $article["Image"] ?>" alt="">
     <div class="container">
+      <?php if ($is_admin) : ?>
+        <a href="view_change.php?id=<?= $article_id ?>">Изменить запись</a>
+      <?php endif; ?>
       <h1 class="article__name"><?= $article["Name"] ?></h1>
       <h2 class="article__price">Цена: <?= $article["Price"] ?> тг.</h2>
       <p class="article__desc"><?= $article["Description"] ?></p>
-      <!-- TODO: Link to all items of the same category -->
-      <a class="article__view-more" href="#">Просмотреть все товары категории <?= $article["CatName"] ?></a>
+      <p class="article__purchases">Покупок: <?= $article["Purchases"] ?></p>
       <div class="article__add-review">
         <h2>Добавить отзыв о товаре:</h2>
         <div class="article__form">

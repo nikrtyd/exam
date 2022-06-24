@@ -16,11 +16,15 @@ document.querySelector('#add_comment').addEventListener('click', function () {
     .then(async function (response) {
       let data = await response.text();
       let errorMsg = document.querySelector('.error');
+      let body = document.querySelector('body');
       if (data == '') {
         errorMsg.classList.add('flex');
+        body.style.overflow = 'hidden';
+        window.scrollTo(0, 0);
         return;
       } else {
         errorMsg.classList.remove('flex');
+        body.style.overflow = '';
         data = JSON.parse(data);
         let new_comment_div = document.createElement('div');
         new_comment_div.classList.add('comment');

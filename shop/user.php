@@ -1,5 +1,6 @@
 <?php
   session_start();
+  
   $user_id = $_SESSION["user_id"] ?? false;
   if ($user_id) {
     require "vendor/autoload.php";
@@ -29,14 +30,9 @@
 <body>
   <?php include "header.php" ?>
   <?php if ($user_id): ?>
-  <h1>Галерея пользователя</h1>
-  <div id="grid">
-    <?php foreach ($data as $photo): ?>
-      <?= (new Shop\Card($photo["Id"], $photo["Image"], $photo["Name"], $photo["Price"]))->get_html() ?>
-    <?php endforeach; ?>
-  </div>
+  <h1>Вы уже вошли в ваш аккаунт.</h1>
   <?php else: ?>
-    <div class="form">
+    <div class="form container">
       <form action="login.php" method="post">
         <h2>Авторизация</h2>
         <input type="text" placeholder="Логин" name="login">
@@ -60,10 +56,6 @@
       </form>
     </div>
   <?php endif; ?>
-  <?php include "add_form.php" ?>
-  <div id="popup_photo">
-    <img src="" alt="">
-  </div>
   <script src="script.js"></script>
 </body>
 </html>
